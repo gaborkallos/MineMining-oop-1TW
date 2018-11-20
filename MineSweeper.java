@@ -3,6 +3,13 @@ import java.lang.Math;
 
 public class MineSweeper {
     public static void main(String[] args) {
+        int[] parameters = getInputs();
+        GameConfig game = new GameConfig(parameters[0], parameters[1]);
+        int[][] gameTable = game.getMineTable();
+        printTable(gameTable);
+
+    }
+    private static int[] getInputs(){
         Scanner readSize = new Scanner(System.in);
         int size;
         do {
@@ -19,11 +26,11 @@ public class MineSweeper {
             numberOfMine = 1;
         }
         readSize.close();
-        GameConfig game = new GameConfig(size, numberOfMine);
-        int[][] gameTable = game.getMineTable();
-        printTable(gameTable);
-
+        int[] inputs = {size, numberOfMine};
+        return inputs;
     }
+
+
     private static int getPlayerInput(Scanner readSize, String nameOfInput) {
         System.out.println("Please enter " + nameOfInput + "!");
         int size = readSize.nextInt();

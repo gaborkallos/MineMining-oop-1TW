@@ -1,5 +1,4 @@
 import java.util.*;
-import com.sun.org.apache.xpath.internal.SourceTree;
 
 class GameConfig {
     private final int M = 9;

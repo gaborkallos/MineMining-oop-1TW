@@ -5,10 +5,13 @@ public class MineSweeper {
         Scanner readSize = new Scanner(System.in);
         int size = getPlayerInput(readSize, "tablesize");
         int numberOfMine = getPlayerInput(readSize, "number of mines");
-        readSize.close();
         GameConfig game = new GameConfig(size, numberOfMine);
         int[][] gameTable = game.getMineTable();
         printTable(gameTable);
+
+        Input in = new Input();
+        in.coordinate();
+        in.mineOrFlag();
 
     }
     private static int getPlayerInput(Scanner readSize, String nameOfInput) {

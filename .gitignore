@@ -1,0 +1,7 @@
+//InteliJ files
+
+.idea/
+
+//Class files
+
+*.class

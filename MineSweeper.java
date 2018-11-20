@@ -4,10 +4,19 @@ import java.lang.Math;
 public class MineSweeper {
     public static void main(String[] args) {
         Scanner readSize = new Scanner(System.in);
-        int size = getPlayerInput(readSize, "tablesize");
-        int numberOfMine = getPlayerInput(readSize, "number of mines");
+        int size;
+        do {
+            size = getPlayerInput(readSize, "tablesize (1-50)");
+        } while (size>50 || size<1);
+        int numberOfMine;
+        do {
+            numberOfMine = getPlayerInput(readSize, "number of mines (more than 0)");
+        } while (numberOfMine<=0);
         if (numberOfMine >= Math.pow(size, 2)){
             numberOfMine = (int)Math.pow(size, 2)-1;
+        }
+        if (size == 1){
+            numberOfMine = 1;
         }
         readSize.close();
         GameConfig game = new GameConfig(size, numberOfMine);

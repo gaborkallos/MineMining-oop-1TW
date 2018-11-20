@@ -4,33 +4,51 @@ class GameConfig {
     private final int M = 9;
     private int tableSize;
     private int numberOfMines;
-
-    private int[][] mineTable = {{1,2,2,1,0,0,0,1,M},
-                                 {1,M,M,1,0,0,0,1,1},
-                                 {1,2,2,1,0,0,0,0,0},
-                                 {1,1,1,0,0,0,0,0,0},
-                                 {1,M,1,1,2,2,2,1,1},
-                                 {1,1,1,1,M,M,2,M,1},
-                                 {1,1,1,1,2,2,1,1,1},
-                                 {1,M,2,1,2,1,1,0,0},
-                                 {1,1,2,M,1,M,1,0,0},
-                                 {0,0,1,1,2,1,1,0,0}}; //M is the mine
-
+    private int[][] mineTable;
+    
     //constructor
     public GameConfig(int tableSize, int numberOfMines) {
         this.tableSize = tableSize;
         this.numberOfMines = numberOfMines;
+        this.mineTable = new int[this.tableSize][this.tableSize];
+        generateMines();
+        generateNumbers();
     }
 
     public int[][] getMineTable() {
         return this.mineTable;
     }
 
-    public int[][] generateTable() {
-        int[][] result = new int[this.tableSize][this.tableSize];
-        return result;
+    public void generateMines() {
+        int counter = 0;
+        Random r = new Random();
+        while (counter<this.numberOfMines){
+            int xCordinate = r.nextInt(this.tableSize);
+            int yCordinate = r.nextInt(this.tableSize);
+            if (this.mineTable[xCordinate][yCordinate] == 0){
+                this.mineTable[xCordinate][yCordinate] = M;
+                counter++;
+            }
+        }
     }
-
-
+    public void generateNumbers(){
+        for (int i=0; i< this.tableSize; i++){
+            for( int j=0; j< this.tableSize; j++ ){
+                if (this.mineTable[i][j] == M){
+                    for (int k = -1; k<=1; k++){
+                        for (int l = -1; l<=1; l++){
+                            if (i+k>=0 && i+k<this.tableSize){
+                                if (j+l>=0 && j+l<this.tableSize){
+                                    if (this.mineTable[i+k][j+l]!=M){
+                                        this.mineTable[i+k][j+l]++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 

@@ -3,12 +3,11 @@ import java.util.*;
 public class Input {
 
   public int[] coordinate() {
-    Scanner sc = new Scanner(System.in);
-    //TODO validate inpu
+    // TODO validate input
     System.out.println("Input the row: ");
-    int row = sc.nextInt();
+    int row = MineSweeper.scan.nextInt();
     System.out.println("Input the column: ");
-    int column = sc.nextInt();
+    int column = MineSweeper.scan.nextInt();
 
     int[] result = new int[2];
     result[0] = row;
@@ -17,10 +16,9 @@ public class Input {
   }
 
   public String mineOrFlag() {
-    Scanner sc = new Scanner(System.in);
     //TODO validresult[0] = this.row;result[0] = this.row;ate input
     System.out.println("Do you want to step or flag a mine? (s/f)");
-    String mineOrFlag = sc.next();
+    String mineOrFlag = MineSweeper.scan.next();
     return mineOrFlag;
   }
 

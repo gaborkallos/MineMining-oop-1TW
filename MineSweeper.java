@@ -10,8 +10,7 @@ public class MineSweeper {
         PrintTable.printTable(gameTable);
 
         Input in = new Input();
-        in.coordinate();
-        in.mineOrFlag();
+        int[] firstMove = in.movement();
         scan.close();
     }
     private static int[] getInputs(){

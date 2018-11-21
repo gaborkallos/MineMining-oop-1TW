@@ -5,11 +5,13 @@ class PrintTable {
         for (int[] line : actualTable) {
             for (int field: line) {
                 if (field == 9) {
-                    System.out.print("* ");
+                    System.out.print(" ☀");
                 } else if (field == 0) {
-                    System.out.print("_ ");
+                    System.out.print(" _");
+                } else if (field == 100) {
+                    System.out.print("  ");
                 } else {
-                    System.out.print(field + " ");
+                    System.out.print(" " + field);
                 }
              
             }

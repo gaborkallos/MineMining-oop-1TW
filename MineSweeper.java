@@ -7,6 +7,9 @@ public class MineSweeper {
         int[] parameters = getInputs();
         GameConfig game = new GameConfig(parameters[0], parameters[1]);
         int[][] gameTable = game.getMineTable();
+
+        ValidateStep actualGame = new ValidateStep(parameters[0]);
+
         PrintTable.printTable(gameTable);
 
         Input in = new Input();

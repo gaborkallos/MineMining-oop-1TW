@@ -7,7 +7,7 @@ public class MineSweeper {
         int[] parameters = getInputs();
         GameConfig game = new GameConfig(parameters[0], parameters[1]);
         int[][] gameTable = game.getMineTable();
-        printTable(gameTable);
+        PrintTable.printTable(gameTable);
 
         Input in = new Input();
         in.coordinate();

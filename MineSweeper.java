@@ -40,11 +40,4 @@ public class MineSweeper {
         int size = scan.nextInt();
         return size;
     }
-
-    public static void printTable(int[][] gameTable){
-        for (int[] line : gameTable){
-            System.out.println(Arrays.toString(line));
-        }
-
-    }
 }

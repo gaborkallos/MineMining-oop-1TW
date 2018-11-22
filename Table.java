@@ -26,7 +26,7 @@ public class Table {
     public void reveal(int row, int column) {
         if(cells[row][column].isRevealed())
             return;
-        reset();
+        // reset();
         final Cell clicked = cells[row][column];
         clicked.reveal();
         if (clicked.isMine()) {
@@ -50,13 +50,13 @@ public class Table {
             if(!neighbour.isRevealed() &&
                !neighbour.isMine() &&
                !neighbour.isProcessed()) {
-                neighbour.reveal();
-                if (neighbour.getValue() == 0) {
-                    revealAround(neighbour);
+                    neighbour.reveal();
+                    if (neighbour.getValue() == 0) {
+                        revealAround(neighbour);
+                    }
                 }
             }
         }
-    }
 
     private Cell[] neighboursFor(Cell cell) {
         int row = cell.getRow();
@@ -66,6 +66,10 @@ public class Table {
             for (int l = -1; l <=1; l++) {
                 if (row+k >= 0 && row+k < cells.length && col+l >= 0 && col+l < cells.length) {
                     if (k != 0 && l != 0) {
+                        System.out.println("around");
+                        System.out.print(cells[row+k][col+l].getRow());
+                        System.out.print(" - ");
+                        System.out.print(cells[row+k][col+l].getColumn());
                         neighbours.add(cells[row+k][col+l]);
                     }
                 }

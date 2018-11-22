@@ -19,6 +19,7 @@ public class MineSweeper {
             String mOrF = in.mineOrFlag();
             int[] coord = in.coordinate();
             if (isStep(mOrF)) {
+                System.out.println(mOrF);
                 actualGame.reveal(coord[0], coord[1]);
             } else if (isFlag(mOrF)) {
                 actualGame.flag(coord[0], coord[1]);
@@ -28,7 +29,7 @@ public class MineSweeper {
 
 
     private static boolean isStep(String select) {
-        return (select == "s" || select == "S");
+        return (select.toLowerCase().contains("s"));
     }
 
     private static boolean isFlag(String select) {

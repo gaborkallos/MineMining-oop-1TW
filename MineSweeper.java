@@ -19,7 +19,6 @@ public class MineSweeper {
             String mOrF = in.mineOrFlag();
             int[] coord = in.coordinate();
             if (isStep(mOrF)) {
-                System.out.println(mOrF);
                 actualGame.reveal(coord[0], coord[1]);
             } else if (isFlag(mOrF)) {
                 actualGame.flag(coord[0], coord[1]);

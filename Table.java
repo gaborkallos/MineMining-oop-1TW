@@ -64,14 +64,16 @@ public class Table {
         ArrayList<Cell> neighbours = new ArrayList<Cell>();
         for (int k = -1; k <=1; k++) {
             for (int l = -1; l <=1; l++) {
-                if (row+k >= 0 && row+k < cells.length && col+l >= 0 && col+l < cells.length) {
-                    if (k != 0 && l != 0) {
+                System.out.println("k: " + k + " - l: " + l);
+                if ((row+k >= 0) && (row+k < cells.length) && (col+l >= 0) && (col+l < cells.length)) {
+                    //if (k != 0 && l != 0) {
                         System.out.println("around");
                         System.out.print(cells[row+k][col+l].getRow());
                         System.out.print(" - ");
                         System.out.print(cells[row+k][col+l].getColumn());
+                        System.out.println("");
                         neighbours.add(cells[row+k][col+l]);
-                    }
+                    //}
                 }
             }
         }

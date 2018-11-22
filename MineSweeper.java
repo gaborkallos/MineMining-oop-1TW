@@ -3,20 +3,38 @@ import java.lang.Math;
 
 public class MineSweeper {
     public static Scanner scan = new Scanner(System.in);
+
     public static void main(String[] args) {
         int[] parameters = getInputs();
         GameConfig game = new GameConfig(parameters[0], parameters[1]);
         int[][] gameTable = game.getMineTable();
 
-        ValidateStep actualGame = new ValidateStep(parameters[0]);
+        // PrintTable.printTable(gameTable);
 
-        PrintTable.printTable(gameTable);
+        Input in = new Input();     
+        Table actualGame = new Table(parameters[0], gameTable);
 
-        Input in = new Input();
-        in.coordinate();
-        in.mineOrFlag();
-        scan.close();
+        do {
+            PrintTable.printTable(actualGame.getUserTable());
+            String mOrF = in.mineOrFlag();
+            int[] coord = in.coordinate();
+            if (isStep(mOrF)) {
+                actualGame.reveal(coord[0], coord[1]);
+            } else if (isFlag(mOrF)) {
+                actualGame.flag(coord[0], coord[1]);
+            }      
+        } while (true);
     }
+
+
+    private static boolean isStep(String select) {
+        return (select == "s" || select == "S");
+    }
+
+    private static boolean isFlag(String select) {
+        return (select == "f" || select == "F");
+    }
+
     private static int[] getInputs(){
         int size;
         do {

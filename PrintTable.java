@@ -1,17 +1,17 @@
 import java.util.*;
 
 class PrintTable {
-    static void printTable(int[][] actualTable) {
-        for (int[] line : actualTable) {
-            for (int field: line) {
-                if (field == 9) {
+    static void printTable(Cell[][] actualTable) {
+        for (Cell[] line : actualTable) {
+            for (Cell field: line) {
+                if (field.getValue() == 9) {
                     System.out.print(" ☀");
-                } else if (field == 0) {
+                } else if (field.getValue() == 0) {
                     System.out.print(" _");
-                } else if (field == 100) {
+                } else if (field.getValue() == 100) {
                     System.out.print("  ");
                 } else {
-                    System.out.print(" " + field);
+                    System.out.print(" " + field.getValue());
                 }
              
             }

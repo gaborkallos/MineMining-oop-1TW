@@ -37,14 +37,14 @@ class PrintTable {
             for (int j = 0; j < actualTable.length; j++) {
                 if (actualTable[i][j].isRevealed()) {
                     if (actualTable[i][j].getValue() == 9) {
-                        System.out.print(" ☀ ");
+                        System.out.print(" " + "\033[41m" + "☀ " + "\033[0m");
                     } else if (actualTable[i][j].getValue() == 0) {
-                        System.out.print(" @ ");
+                        System.out.print("\033[90m" + " . " + "\033[37m");
                     } else {
-                        System.out.print(" " + actualTable[i][j].getValue() + " ");
+                        System.out.print("\033[33m"+ " " + actualTable[i][j].getValue() + " "+ "\033[37m");
                     }
                 } else {
-                    System.out.print(" · ");
+                    System.out.print("\033[42m" + " # " + "\033[0m");
                 }
             }
             System.out.print(" | \n");
